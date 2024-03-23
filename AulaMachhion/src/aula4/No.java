@@ -1,13 +1,13 @@
 package aula4;
 
+
 public class No {
 	
 	private int info;
 	private No proximo;
-	public No (int info) {
+	public No(int info, No proximo) {
 		setInfo(info);
-		this.info=info; //this previne a ambiguidade
-		proximo = null; //redundancia só para exemplificar, ele ja zera com o null por padrao do ponteiro 
+		setProximo(proximo);
 	}
 
 	public int getInfo() {

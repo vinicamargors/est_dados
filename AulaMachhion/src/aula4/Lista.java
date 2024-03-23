@@ -1,5 +1,6 @@
 package aula4;
 
+
 public class Lista {
 	private No primeiro;
 
@@ -19,12 +20,26 @@ public class Lista {
 	public void setPrimeiro(No primeiro) {
 	*/	
 	public void insereInicio(int i) {
-		No novo = new No(i);
+		No novo = new No(i, null);
 		if (!estaVazia()) {
 			novo.setProximo(primeiro);
 		}
 		primeiro = novo;
 	}
+	
+	public void insereFim(int i) {
+		No novo = new No(i, null);
+		if (estaVazia()) {
+			primeiro = novo;
+		} else {
+			No aux = primeiro;
+			while(aux.getProximo() != null) {
+				aux = aux.getProximo();
+			}
+			aux.setProximo(novo);
+		}
+	}
+	
 	@Override 
 	public String toString() {
 		String s = "lista: ";
@@ -40,19 +55,5 @@ public class Lista {
 			s += "\\\\";
 		}
 		return s;
-	}
-	
-	public void insereFim(int i) {
-		No novo = new No(i);
-		if (estaVazia()) {
-			primeiro = novo; 
-		}
-		else {
-			No aux = primeiro;
-			while (aux.getProximo() != null) {
-				aux = aux.getProximo();
-			}
-			aux.setProximo(novo);
-		}
 	}
 }
